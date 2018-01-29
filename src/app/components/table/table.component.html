@@ -1,0 +1,36 @@
+<div class="container">
+
+  <mat-table #table [dataSource]="dataSource">
+
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell *matCellDef="let entry"> 
+            {{ entry.departureDate }} <br>
+            {{ entry.arrivalDate }}
+        </mat-cell>
+      </ng-container>
+
+
+    <!-- Flight Column -->
+    <ng-container matColumnDef="flight">
+      <mat-header-cell *matHeaderCellDef> Flight </mat-header-cell>
+      <mat-cell *matCellDef="let entry"> 
+          {{ entry.from }}
+          {{ entry.to }}
+      </mat-cell>
+    </ng-container>    
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let entry"> 
+          {{ entry.status }}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columns"></mat-row>
+  </mat-table>
+</div>
